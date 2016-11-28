@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+        /*rem 自适应*/
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        html,
+        body,
+        header,
+        div,
+        footer,
+        img,
+        p,
+        input,
+        label,
+        a {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-size: .16rem;
+            background: url("bg.jpg") #a3cfef;
+            background-size: 100%;
+            font-family: "Microsoft YaHei UI";
+        }
+        /*header*/
+        #header .icon {
+            display: block;
+            margin-top: .5rem;
+            margin-left: 2.1rem;
+            height: 2.8rem;
+        }
+        #header .School {
+            margin-left: 40%;
+        }
+        #header p {
+            margin-bottom: .5rem;
+            text-align: center;
+        }
+        /*container*/
+        .id, .password {
+            position: relative;
+        }
+        .id input, .password input {
+            height: .7rem;
+            width: 70%;
+            margin-top: .2rem;
+            margin-left: 15%;
+            font-size: .4rem;
+            text-indent: .8rem;
+            border: .03rem solid #fff;
+            border-radius: .13rem;
+            outline: 0;
+            background: rgba(255,255,255,0.5);
+            transition: all 1s;
+        }
+        .id input:focus, .password input:focus {
+            background: rgba(141,193,240,0.8);
+            border-color: #6c83d9;
+            transition: all 1s;
+        }
+        .id img, .password img {
+            position: absolute;
+            top: .35rem;
+            left: 1.3rem;
+            height: .4rem;
+        }
+        .submit {
+            display: block;
+            height: .7rem;
+            width: 70%;
+            margin-top: .7rem;
+            margin-bottom: .4rem;
+            margin-left: 15%;
+            line-height: .7rem;
+            letter-spacing: .8rem;
+            text-indent: .7rem;
+            background: #8cbeef;
+            font-size: .4rem;
+            border-radius: .2rem;
+            border: 0;
+            outline: 0;
+            color: #fff;
+        }
+        .cookie, .forget {
+            font-size: .3rem;
+            color: #fff;
+        }
+        .cookie {
+            display: inline-block;
+            margin-left: 15%;
+            margin-right: 2.4rem;
+        }
+        .forget {
+            text-decoration: none;
+        }
+        /*footer*/
+        #footer {
+            position: absolute;
+            bottom: .5rem;
+            padding-left: 1.85rem;
+            font-size: .4rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!--顶部-->
+    <header id="header">
+        <img src="icon.png" alt="icon" class="icon">
+        <img src="" alt="School" class="School">
+        <p>HANGZHOU  DIANZI  UNIVERSITY</p>
+    </header>
+    <!--内容层-->
+    <div id="container">
+        <div class="id">
+            <img src="test.jpg" alt="id">
+            <input type="text" id="id">
+        </div>
+        <div class="password">
+            <img src="test.jpg" alt="password">
+            <input type="text" id="password">
+        </div>
+        <button class="submit" type="submit">确认</button>
+        <div class="cookie">
+            <input type="checkbox" id="remember">
+            <label for="remember">记住我</label>
+        </div>
+        <a href="javascript:;" class="forget">忘记密码</a>
+    </div>
+    <!--底部-->
+    <footer id="footer">
+        <p>copyright&copy;杭电助手</p>
+    </footer>
+</body>
+</html>
