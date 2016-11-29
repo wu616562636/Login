@@ -20,6 +20,33 @@
             win.addEventListener(resizeEvt, recalc, false);
             doc.addEventListener('DOMContentLoaded', recalc, false);
         })(document, window);
+
+        $(function () {
+            $(".submit").click(function () {
+                var $this=this;
+                var background=$($this).css("background");
+                var boxShadow=$($this).css("box-shadow");
+                $($this).css({"background":"#fff","box-shadow":"0 0 .3rem 0 hsla(0,0%,100%,0.7)"}).attr("disabled",true);
+                $.ajax({
+                    url:"",
+                    type:"POST",
+                    data:{
+                        "id":$("#id").val(),
+                        "password":$("#password").val()
+                    },
+                    dataType:"json",
+                    success:function () {
+
+                    },
+                    error:function () {
+
+                    },
+                    complete:function () {
+                        $($this).css({"background":background,"box-shadow":boxShadow}).attr("disabled",false);
+                    }
+                })
+            })
+        })
     </script>
     <style>
         html,
@@ -49,10 +76,12 @@
             height: 2.8rem;
         }
         #header .School {
-            margin-left: 40%;
+            width: 7rem;
+            margin-left: 5%;
         }
         #header p {
             margin-bottom: .5rem;
+            font-size: .25rem;
             text-align: center;
         }
         /*container*/
@@ -65,7 +94,7 @@
             margin-top: .2rem;
             margin-left: 15%;
             font-size: .4rem;
-            text-indent: .8rem;
+            text-indent: 1rem;
             border: .03rem solid #fff;
             border-radius: .13rem;
             outline: 0;
@@ -77,11 +106,17 @@
             border-color: #6c83d9;
             transition: all 1s;
         }
-        .id img, .password img {
+        .id img {
             position: absolute;
-            top: .35rem;
-            left: 1.3rem;
-            height: .4rem;
+            top: -.2rem;
+            left: .8rem;
+            height: 1.6rem;
+        }
+        .password img {
+            position: absolute;
+            top: -.23rem;
+            left: 1rem;
+            height: 1.5rem;
         }
         .submit {
             display: block;
@@ -94,11 +129,14 @@
             letter-spacing: .8rem;
             text-indent: .7rem;
             background: #8cbeef;
-            font-size: .4rem;
+            /*background: #fff;*/
+            font-size: .5rem;
             border-radius: .2rem;
+            font-weight: bold;
+            box-shadow: 0 .05rem .1rem 0 hsla(0,0%,0%,0.3);
             border: 0;
             outline: 0;
-            color: #fff;
+            color: #a3cfef;
         }
         .cookie, .forget {
             font-size: .3rem;
@@ -114,7 +152,7 @@
         }
         /*footer*/
         #footer {
-			margin-top: 3.5rem;
+			margin-top: 2rem;
             padding-left: 1.85rem;
             font-size: .4rem;
             color: #fff;
@@ -125,17 +163,17 @@
     <!--顶部-->
     <header id="header">
         <img src="icon.png" alt="icon" class="icon">
-        <img src="" alt="School" class="School">
+        <img src="School.png" alt="School" class="School">
         <p>HANGZHOU  DIANZI  UNIVERSITY</p>
     </header>
     <!--内容层-->
     <div id="container">
         <div class="id">
-            <img src="test.jpg" alt="id">
+            <img src="user.png" alt="id">
             <input type="text" id="id">
         </div>
         <div class="password">
-            <img src="test.jpg" alt="password">
+            <img src="password.png" alt="password">
             <input type="text" id="password">
         </div>
         <button class="submit" type="submit">确认</button>
